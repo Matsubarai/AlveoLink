@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-create_project HiveNet_bd ./HiveNet_bd -part xcu55c-fsvh2892-2L-e
+create_project HiveNet_bd ./HiveNet_bd -part xcu280-fsvh2892-2L-e
 
 add_files -norecurse {./HiveNet_bd/HiveNet_kernel.sv ./ip/bram_wrapper.v ./ip/axi_address_remap.v ./ip/ip_handler.v ./ip/axis_switch.v ./ip/ecn_timer.v ./ip/stream_flag_reg.v ./ip/fifo_packet_drop.v ./ip/drop_tusrer.v}
 import_files -force -norecurse
