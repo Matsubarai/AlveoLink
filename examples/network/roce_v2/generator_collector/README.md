@@ -87,7 +87,7 @@ export AL_PATH=/opt/xilinx/apps/AlveoLink
 ```sh
 navigate to examples/network/roce_v2/generator_collector
 
-make xclbin TARGET=hw DEVICE=/opt/xilinx/platforms/xilinx_u55c_gen3x16_xdma_3_202210_1/xilinx_u55c_gen3x16_xdma_3_202210_1.xpfm INTERFACE=3
+make xclbin TARGET=hw DEVICE=/opt/xilinx/platforms/xilinx_u280_gen3x16_xdma_1_202211_1/xilinx_u280_gen3x16_xdma_1_202211_1.xpfm INTERFACE=3
 
 ```
 

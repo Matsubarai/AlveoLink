@@ -65,7 +65,7 @@ int main(int argc,char** argv) {
     auto help_option = op.add<Switch>("h", "help", "produce help message");
     auto devID_1 = op.add<Value<int>, Attribute::optional>("d", "dev_1", "Device 1 PCIe number", 0);
     auto devID_2 = op.add<Value<int>, Attribute::optional>("k", "dev_2", "Device 2 PCIe number", 1);
-    auto xclbin = op.add<Value<std::string> >("x", "xclbin", "xclbin", "build_dir.hw.xilinx_u55c_gen3x16_xdma_3_202210_1/binary_container_1.xclbin");
+    auto xclbin = op.add<Value<std::string> >("x", "xclbin", "xclbin", "build_dir.hw.xilinx_u280_gen3x16_xdma_1_202211_1/binary_container_1.xclbin");
     auto test_duration = op.add<Value<unsigned long long> >("t", "time", "number of seconds to run the test", 32);
     auto packet_dim = op.add<Value<int> >("n", "dim", "packet dimension", 1);
 

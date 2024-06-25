@@ -61,11 +61,11 @@ ifeq ($(PLATFORM),)
 PLATFORM := $(DEVICE)
 endif
 ifeq ($(PLATFORM),)
-PLATFORM := xilinx_u55c_gen3x16_xdma_3_202210_1 
+PLATFORM := xilinx_u280_gen3x16_xdma_1_202211_1
 endif
 
 # #################### Checking if PLATFORM in whitelist ############################
-PLATFORM_ALLOWLIST +=  u55
+PLATFORM_ALLOWLIST +=  u280
 PLATFORM_BLOCKLIST +=  zc
 
 include ./utils.mk
