@@ -104,7 +104,7 @@ VPP_LDFLAGS += --optimize 2 -R 2
 #VPP_LDFLAGS += --debug.chipscope dv_adapter0:tx_axis --debug.chipscope dv_adapter0:rx_axis
 endif
 CXXFLAGS += -g -O0 
-EXTRA_VPP_FLAGS += --vivado.prop run.impl_1.strategy=Performance_Auto_3
+EXTRA_VPP_FLAGS += --vivado.prop run.impl_1.strategy=Performance_NetDelay_Low
 VPP_FLAGS += $(EXTRA_VPP_FLAGS)
 
 ########################## Setting up Host Variables ##########################
