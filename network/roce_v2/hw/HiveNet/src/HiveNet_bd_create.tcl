@@ -1448,7 +1448,7 @@ proc create_hier_cell_inter { parentCell nameHier } {
   # Create instance: axi_clock_converter_2, and set properties
   set axi_clock_converter_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_clock_converter:2.1 axi_clock_converter_2 ]
   set_property -dict [ list \
-   CONFIG.ADDR_WIDTH {34} \
+   CONFIG.ADDR_WIDTH {33} \
    CONFIG.READ_WRITE_MODE {READ_ONLY} \
    CONFIG.SYNCHRONIZATION_STAGES {5} \
  ] $axi_clock_converter_2
@@ -1456,7 +1456,7 @@ proc create_hier_cell_inter { parentCell nameHier } {
   # Create instance: axi_clock_converter_4, and set properties
   set axi_clock_converter_4 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_clock_converter:2.1 axi_clock_converter_4 ]
   set_property -dict [ list \
-   CONFIG.ADDR_WIDTH {34} \
+   CONFIG.ADDR_WIDTH {33} \
    CONFIG.READ_WRITE_MODE {READ_ONLY} \
    CONFIG.SYNCHRONIZATION_STAGES {5} \
  ] $axi_clock_converter_4
@@ -2648,7 +2648,7 @@ proc create_root_design { parentCell HBM_BANK } {
   # Create interface ports
   set HBM_read [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 HBM_read ]
   set_property -dict [ list \
-   CONFIG.ADDR_WIDTH {34} \
+   CONFIG.ADDR_WIDTH {33} \
    CONFIG.DATA_WIDTH {256} \
    CONFIG.FREQ_HZ {400000000} \
    CONFIG.HAS_BURST {0} \
@@ -2661,7 +2661,7 @@ proc create_root_design { parentCell HBM_BANK } {
 
   set HBM_write [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 HBM_write ]
   set_property -dict [ list \
-   CONFIG.ADDR_WIDTH {34} \
+   CONFIG.ADDR_WIDTH {33} \
    CONFIG.DATA_WIDTH {256} \
    CONFIG.FREQ_HZ {400000000} \
    CONFIG.HAS_BURST {0} \
@@ -2799,7 +2799,7 @@ proc create_root_design { parentCell HBM_BANK } {
   # Create instance: axi_register_slice_1, and set properties
   set axi_register_slice_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_register_slice:2.1 axi_register_slice_1 ]
   set_property -dict [ list \
-   CONFIG.ADDR_WIDTH {34} \
+   CONFIG.ADDR_WIDTH {33} \
    CONFIG.DATA_WIDTH {256} \
    CONFIG.NUM_WRITE_OUTSTANDING {256} \
    CONFIG.READ_WRITE_MODE {WRITE_ONLY} \
@@ -2810,7 +2810,7 @@ proc create_root_design { parentCell HBM_BANK } {
   # Create instance: axi_register_slice_2, and set properties
   set axi_register_slice_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_register_slice:2.1 axi_register_slice_2 ]
   set_property -dict [ list \
-   CONFIG.ADDR_WIDTH {34} \
+   CONFIG.ADDR_WIDTH {33} \
    CONFIG.DATA_WIDTH {256} \
    CONFIG.NUM_WRITE_OUTSTANDING {256} \
    CONFIG.READ_WRITE_MODE {WRITE_ONLY} \
@@ -2821,7 +2821,7 @@ proc create_root_design { parentCell HBM_BANK } {
   # Create instance: axi_register_slice_3, and set properties
   set axi_register_slice_3 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_register_slice:2.1 axi_register_slice_3 ]
   set_property -dict [ list \
-   CONFIG.ADDR_WIDTH {34} \
+   CONFIG.ADDR_WIDTH {33} \
    CONFIG.DATA_WIDTH {256} \
    CONFIG.NUM_WRITE_OUTSTANDING {0} \
    CONFIG.READ_WRITE_MODE {READ_ONLY} \
@@ -2833,7 +2833,7 @@ proc create_root_design { parentCell HBM_BANK } {
   # Create instance: axi_register_slice_4, and set properties
   set axi_register_slice_4 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_register_slice:2.1 axi_register_slice_4 ]
   set_property -dict [ list \
-   CONFIG.ADDR_WIDTH {34} \
+   CONFIG.ADDR_WIDTH {33} \
    CONFIG.DATA_WIDTH {256} \
    CONFIG.NUM_WRITE_OUTSTANDING {0} \
    CONFIG.READ_WRITE_MODE {READ_ONLY} \
@@ -2845,7 +2845,7 @@ proc create_root_design { parentCell HBM_BANK } {
   # Create instance: axi_register_slice_5, and set properties
   set axi_register_slice_5 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_register_slice:2.1 axi_register_slice_5 ]
   set_property -dict [ list \
-   CONFIG.ADDR_WIDTH {34} \
+   CONFIG.ADDR_WIDTH {33} \
    CONFIG.DATA_WIDTH {256} \
    CONFIG.NUM_WRITE_OUTSTANDING {0} \
    CONFIG.READ_WRITE_MODE {READ_ONLY} \
@@ -2927,91 +2927,97 @@ proc create_root_design { parentCell HBM_BANK } {
   puts "#################################################"
 
   if { $HBM_BANK == 0 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x0} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x0} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
+
 } elseif { $HBM_BANK == 1 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x20000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x10000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
+
 } elseif { $HBM_BANK == 2 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x40000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x20000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
+
 } elseif { $HBM_BANK == 3 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x60000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x30000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
+
 } elseif { $HBM_BANK == 4 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x80000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x40000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
+
 } elseif { $HBM_BANK == 5 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0xa0000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x50000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
+
 } elseif { $HBM_BANK == 6 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0xc0000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x60000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 7 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0xe0000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x70000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 8 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x100000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x80000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 9 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x120000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x90000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 10 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x140000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0xa0000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 11 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x160000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0xb0000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 12 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x180000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0xc0000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 13 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x1a0000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0xd0000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 14 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x1c0000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0xe0000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 15 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x1e0000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x100000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 16 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x200000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x110000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 17 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x220000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x120000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 18 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x240000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x130000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 19 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x260000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x140000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 20 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x280000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x150000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 21 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x2a0000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x160000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 22 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x2c0000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x170000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 23 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x2e0000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x180000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 24 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x300000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x190000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 25 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x320000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x1a0000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 26 } {
-	set_property -dict [ list CONFIG.CONST_VAL {0x340000000} CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x1b0000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 27 } {
-	set_property -dict [ list    CONFIG.CONST_VAL {0x360000000}    CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x1c0000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 28 } {
-	set_property -dict [ list    CONFIG.CONST_VAL {0x380000000}    CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x1d0000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } elseif { $HBM_BANK == 29 } {
-	set_property -dict [ list  CONFIG.CONST_VAL {0x3a0000000}  CONFIG.CONST_WIDTH {34} ] $xlconstant_0
+	set_property -dict [ list CONFIG.CONST_VAL {0x1e0000000} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 
 } else {
-  set_property -dict [ list CONFIG.CONST_VAL {0x0} CONFIG.CONST_WIDTH {34}  ] $xlconstant_0
+  set_property -dict [ list CONFIG.CONST_VAL {0x0} CONFIG.CONST_WIDTH {33} ] $xlconstant_0
 }
 
   # Create instance: registers_0
@@ -3086,9 +3092,9 @@ proc create_root_design { parentCell HBM_BANK } {
   connect_bd_net -net xpm_cdc_gen_0_dest_out [get_bd_pins ethernet_stack_0/myIpAddress_V_0] [get_bd_pins xpm_cdc_gen_0/dest_out]
 
   # Create address segments
-  assign_bd_address -offset 0x00000000 -range 0x000400000000 -target_address_space [get_bd_addr_spaces HiveNet_0h/hier_0/CounterForBurstSize_0/Data_m_axi_outputto_HBM] [get_bd_addr_segs HBM_write/Reg] -force
-  assign_bd_address -offset 0x00000000 -range 0x000400000000 -target_address_space [get_bd_addr_spaces HiveNet_0h/hier_0/tx_checkTimeout_dev_0/Data_m_axi_header] [get_bd_addr_segs HBM_read/Reg] -force
-  assign_bd_address -offset 0x00000000 -range 0x000400000000 -target_address_space [get_bd_addr_spaces HiveNet_0h/hier_0/tx_checkcurrent_data_0/Data_m_axi_HBM_a] [get_bd_addr_segs HBM_read/Reg] -force
+  assign_bd_address -offset 0x00000000 -range 0x000200000000 -target_address_space [get_bd_addr_spaces HiveNet_0h/hier_0/CounterForBurstSize_0/Data_m_axi_outputto_HBM] [get_bd_addr_segs HBM_write/Reg] -force
+  assign_bd_address -offset 0x00000000 -range 0x000200000000 -target_address_space [get_bd_addr_spaces HiveNet_0h/hier_0/tx_checkTimeout_dev_0/Data_m_axi_header] [get_bd_addr_segs HBM_read/Reg] -force
+  assign_bd_address -offset 0x00000000 -range 0x000200000000 -target_address_space [get_bd_addr_spaces HiveNet_0h/hier_0/tx_checkcurrent_data_0/Data_m_axi_HBM_a] [get_bd_addr_segs HBM_read/Reg] -force
   assign_bd_address -offset 0x00000080 -range 0x00000080 -target_address_space [get_bd_addr_spaces S00_AXI_0] [get_bd_addr_segs HiveNet_0h/axi_gpio_0/S_AXI/Reg] -force
   assign_bd_address -offset 0x00000100 -range 0x00000080 -target_address_space [get_bd_addr_spaces S00_AXI_0] [get_bd_addr_segs registers_0/axi_gpio_0/S_AXI/Reg] -force
   assign_bd_address -offset 0x00000180 -range 0x00000080 -target_address_space [get_bd_addr_spaces S00_AXI_0] [get_bd_addr_segs registers_0/axi_gpio_1/S_AXI/Reg] -force
